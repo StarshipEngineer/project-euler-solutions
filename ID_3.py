@@ -1,13 +1,11 @@
-# The prime factors of 13195 are 5, 7, 13 and 29.
-# What is the largest prime factor of the number 600851475143 ?
-
-
-# maybe tackle this from the other end- multiply primes until the product matches the input
-# This is because the number can be so huge
-
+"""The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?
+"""
 
 
 number1 = 13195
+number2 = 600851475143
+
 
 def is_prime(number):
     if number > 2:    
@@ -22,14 +20,15 @@ def is_prime(number):
     if number <= 2 and number >= 0:
         return True
 
-def biggest_prime_factor(number):
+
+def largest_prime_factor(number):
     biggest_prime = 1
-    for i in range (2, int(number / 2)):
-        if is_prime(i) == True:
+    factors = range(1, int(number / 2) + 1)
+    for i in factors:
+        if is_prime(i) == True and number % i == 0:
             biggest_prime = i
     return biggest_prime
 
-# Still doesn't work
 
-a = biggest_prime_factor(number1)
-print(a)
+a = largest_prime_factor(number2)
+print(a, is_prime(a))
